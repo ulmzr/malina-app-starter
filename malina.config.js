@@ -4,7 +4,7 @@ const sassPlugin = require('malinajs/plugins/sass.js');
 
 const watch = process.argv.includes('-w') ? (process.env.WATCH = 1) : null;
 
-//if (watch) require('./routes');
+if (watch) require('./routes');
 
 module.exports = function (option, filename) {
    const dirname = filename.replace(/[^\\\/]+$/, '');

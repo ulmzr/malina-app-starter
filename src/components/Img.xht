@@ -3,12 +3,18 @@
 
    export let alt = '...';
    export let href;
+   export let url;
    export let src;
    export let avatar;
    export let icon;
    export let color;
    export let hcolor = null;
    export let rotate;
+
+   let urlData;
+   if (url && !icon) {
+      icon = 1;
+   }
 
    let size = Number(avatar || icon) + "em", 
       speed, direction, target;
@@ -36,6 +42,10 @@
       direction = direction < 0 ? 'reverse' : 'normal';
    };
 
+   async function onMount(){
+      if (url) urlData = await (await fetch(url)).text();
+   }
+
 </script>
 
 {#fragment:img}
@@ -46,7 +56,13 @@
    {#if typeof src === 'function'}
       <component:src/>
    {:else}
-      <fragment:img/>
+      {#if url}
+         {#if urlData}
+            {@html urlData}
+         {/if}
+      {:else}
+         <fragment:img/>
+      {/if}
    {/if}
 {/fragment}
 

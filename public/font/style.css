@@ -1,0 +1,7 @@
+@font-face {
+   font-family: 'SIL';
+   font-style: normal;
+   font-weight: normal;
+   src: local('Shadows Into Light Regular'),
+      url('./ShadowsIntoLight.woff') format('woff');
+}

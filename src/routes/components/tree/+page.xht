@@ -1,0 +1,82 @@
+<script>
+   const items = [
+      {
+         title: 'Dashboard',
+         href: '/',
+      },
+      {
+         title: 'Introduction',
+         href: '/intro',
+      },
+      {
+         title: 'Basic',
+         sub: [
+            {
+               title: 'Typography',
+               href: '/basic/typography',
+            },
+            {
+               title: 'Elements',
+               sub: [
+                  {
+                     title: 'Quote',
+                     href: '/basic/elements/quote',
+                  },
+                  {
+                     title: 'Code',
+                     href: '/basic/elements/code',
+                  },
+               ]
+            },
+         ]
+      },
+      {
+         title: 'Components',
+         sub: [
+            {
+               title: 'Tree',
+               href: '/components/tree',
+            },
+            {
+               title: 'Image',
+               href: '/components/image',
+            },
+            {
+               title: 'Icon',
+               href: '/components/icon',
+            },
+         ]
+      },
+      {
+         title: 'Others',
+         sub: [
+            {
+               title: 'Login',
+               href: '/others/login',
+            },
+            {
+               title: 'Logout',
+               href: '/others/logout',
+            },
+            {
+               title: 'Error',
+               href: '/others/error',
+            },
+         ]
+      }
+   ]
+</script>
+
+<main>
+   <h2>
+      Tree
+      <p>Content of ComponentsTree store in routes/components/tree/Page.xht</>
+   </>
+   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut facere harum ad aliquid, suscipit ullam est natus assumenda alias asperiores iure magni enim excepturi. Repudiandae incidunt doloremque assumenda delectus fuga!</p>
+
+
+   <Tree {items} />
+
+   <p></p>
+
+</>

@@ -1,0 +1,30 @@
+<script>
+   export let props = {};
+   export let trigger;
+</script>
+
+<nav header>
+   <span>
+      <img src="/img/logo.webp" />
+      <img src="/img/next.webp" />
+   </>
+   <main>
+   </>
+   <svg @click:trigger viewBox="0 0 283 283" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 41h283v48H0zm0 76h283v48H0zm0 78h283v48H0z" />
+   </svg>
+</>
+
+<style global lang=scss>
+   [header] > * {
+      height: inherit;
+   }
+   [header] > svg:last-child {
+      padding: 1.25rem;
+      cursor: pointer;
+   }
+   [header] > svg:hover{
+      color: orange
+   }
+
+</style>

@@ -1,0 +1,156 @@
+<script>
+
+   const items = [
+      {
+         title: 'Dashboard',
+         href: '/',
+      },
+      {
+         title: 'Introduction',
+         href: '/intro',
+      },
+      {
+         title: 'Basic',
+         sub: [
+            {
+               title: 'Typography',
+               href: '/basic/typography',
+            },
+            {
+               title: 'Elements',
+               sub: [
+                  {
+                     title: 'Quote',
+                     href: '/basic/elements/quote',
+                  },
+                  {
+                     title: 'Code',
+                     href: '/basic/elements/code',
+                  },
+               ]
+            },
+         ]
+      },
+      {
+         title: 'Components',
+         sub: [
+            {
+               title: 'Tree',
+               href: '/components/tree',
+            },
+            {
+               title: 'Image',
+               href: '/components/image',
+            },
+            {
+               title: 'Icon',
+               href: '/components/icon',
+            },
+         ]
+      },
+      {
+         title: 'Others',
+         sub: [
+            {
+               title: 'Login',
+               href: '/others/login',
+            },
+            {
+               title: 'Logout',
+               href: '/others/logout',
+            },
+            {
+               title: 'Error',
+               href: '/others/error',
+            },
+         ]
+      }
+   ]
+
+</script>
+
+<Tree id="main" {items} close/>
+
+<style global lang=scss>
+   [sidebar] menu {
+      --background: inherit;
+      --color: inherit;
+      --backgroundHover: #252525;
+      --colorHover: orange;
+      --item-height: 2em;
+
+      margin-top: .5em;
+      > a {
+         > i {
+            text-align: center;
+         }
+      }
+      a {
+         padding-left: 1em;
+         background-color: var(--background);
+         color: var(--color);
+         &:hover{
+            background-color: var(--backgroundHover);
+            color: var(--colorHover);
+         }
+         + div a {
+            border-top-left-radius: calc(var(--item-height) / 2);
+            border-bottom-left-radius: calc(var(--item-height) / 2);
+         }
+      }
+   }
+
+   @media (min-width: 576px){
+      [sidebar] menu {
+         > a {
+            padding-left: 0;
+            > i {
+               width: var(--thin);
+            }
+            + div {
+               padding-left: var(--thin);
+            }
+         }
+      }   
+      [_] [sidebar] menu {
+         > a {
+            padding-left: 1em;
+            > i {
+               width: var(--icon-space);
+            }
+            + div {
+               padding-left: var(--icon-space);
+               
+            }
+         }
+      }   
+   }
+
+   @media (min-width: 992px) {
+      [sidebar] menu {
+         > a {
+            padding-left: 1em;
+            > i {
+               width: var(--icon-space);
+            }
+            + div {
+               padding-left: var(--icon-space);
+            }
+         }
+      }
+
+      [_] [sidebar] menu {
+         > a {
+            padding-left: 0;
+            > i {
+               width: var(--thin);
+            }
+            + div {
+               padding-left: var(--thin);
+            }
+         }
+      }   
+
+   }
+
+</style>

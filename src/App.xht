@@ -1,0 +1,29 @@
+<script>
+   import {toggleAttr} from './utils';
+
+   function trigger(){
+      console.log('Triagram clicked!');
+      toggleAttr();
+   }
+
+</script>
+
+<Sidebar/>
+<Header :trigger/>
+
+<section content>
+   <Router/>
+</>
+
+<nav footer>
+
+</>
+
+<div backdrop @click:trigger/>
+
+<style global lang=scss>
+   @import './App.scss';
+
+</style>
+
+

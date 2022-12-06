@@ -1,0 +1,78 @@
+<nav boardlet>
+   <a>
+      <img src="/img/gear.webp" />
+   </a>
+   <main>
+      <a>
+         <img src="/img/gear.webp" />
+      </a>
+      <a>
+         <img src="/img/gear.webp" />
+      </a>
+   </>
+</>
+
+<style global lang=scss>
+[boardlet] {
+      --height: var(--footer-height);
+      --background: #252526;
+      padding: 0 .5em;
+      height: var(--height);
+      background: var(--background);
+      color: var(--color, inherit);
+      transition: padding .25s ease-in-out;
+      > * {
+         height: calc(var(--height) - .5em);
+         > * {
+            height: inherit;
+         }
+      }
+      > a {
+         --width: var(--height);
+         width: var(--width);
+         justify-content: center;
+         flex-shrink: 0;
+         transition: width .25s ease-in-out;
+      }
+      > main {
+         text-align: right;
+      }
+   }
+
+   @media (min-width: 576px){
+      [boardlet]{
+         padding: 0;
+         > a {
+            width: var(--thin);
+            justify-content: center;
+         }
+      }
+
+      [_] [boardlet]{
+         padding: 0 .5em;
+         > a {
+            width: var(--width);
+            justify-content: center;
+         }
+      }
+   }
+
+   @media (min-width: 992px){
+      [boardlet] {
+         padding: 0 .5em;
+         > a {
+            width: var(--width);
+            justify-content: center;
+         }
+      }
+
+      [_] [boardlet]{
+         padding: 0;
+         > a {
+            width: var(--thin);
+            justify-content: center;
+         }
+      }
+   }
+</style>
+

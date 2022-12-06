@@ -1,0 +1,53 @@
+<nav profile>
+   <a>
+      <img src="/img/user.webp" />
+   </a>
+   <main>
+      <h4>Corporate Inc
+         <p>Beyond next</>
+      </>
+   </>
+</>
+
+
+<style global lang=scss>
+   [profile] {
+      --width: 6em;
+      --color: #ccc;
+      --background: inherit;
+      > a {
+         width: var(--width);
+         padding: .5em;
+         flex-shrink: 0;
+         transition: width .25s ease-in-out;
+      }
+      > main {
+         background: var(--background);
+         color: var(--color);
+      }
+   }
+
+   [_] [profile] > a {
+      width: var(--width);
+   }
+
+   @media (min-width: 576px){
+      [profile] > a {
+         width: var(--thin);
+      }
+   }
+
+   @media (min-width: 992px){
+      [profile] {
+         > a {
+            width: var(--width);
+         }
+      }
+
+      [_] [profile] {
+         > a {
+            width: var(--thin);
+         }
+      }
+   }
+</style>

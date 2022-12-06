@@ -1,0 +1,79 @@
+<script>
+   import { colorStyle, colour, setElementStyle } from '../utils';
+
+   export let alt = '...';
+   export let href;
+   export let src;
+   export let height;
+   export let width;
+   export let avatar;
+   export let icon;
+   export let color;
+   export let hcolor;
+   export let rotate;
+   export let properties;
+
+   let size = Number(avatar || icon), speed, direction, target;
+
+   if (href) target = href.includes('//') ? '_blank' : null;
+
+   if (color) {
+      hcolor = hcolor || colour(color)[1];
+      color = colour(color)[0];
+   }
+
+   if (color) {
+      color = colorStyle[color.toLowerCase()] || color; 
+   }
+   
+   if (hcolor) {
+      hcolor = colorStyle[hcolor.toLowerCase()] || hcolor; 
+   }
+
+   if(rotate) {
+      if(typeof rotate === 'boolean') rotate = .5;
+      direction = 1 / Number(rotate);
+      speed = Math.abs(direction);
+      direction = direction < 0 ? 'reverse' : 'normal';
+   };
+
+   const props = {
+      width: size + 'em'
+   }
+
+   function $(e) {
+      setElementStyle(e, props);
+   }
+
+</script>
+
+{#fragment:img}
+   <img {src} {alt} {height} {width} loading=lazy/>
+{/fragment}
+
+{#if typeof src === 'function'}
+   {#if href}
+      <a {href} {target} *$>
+         <component:src />
+      </>
+   {:else}
+      <i *$>
+         <component:src />
+      </>
+   {/if}
+{:else}
+   {#if avatar || href}
+      <a {href} {target} *$>
+         <fragment:img/>
+      </>
+   {:else}
+      {#if icon}
+         <i *$>
+            <fragment:img/>
+         </>
+      {:else}
+         <fragment:img/>
+      {/if}
+   {/if}
+{/if}
+

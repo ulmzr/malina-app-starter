@@ -1,0 +1,44 @@
+<script>
+	import {Route} from "malinajs-router";
+
+	import Home from "./routes/+page.xht";
+	import E404 from "./modules/E404.xht";
+	import Components from "./routes/components/+page.xht";
+	import Image from "./routes/components/image/+page.xht";
+	import Tree from "./routes/components/tree/+page.xht";
+	
+</script>
+
+<Route>
+	<Route path="/">
+		<Home/>
+	</>
+	<Route path="/components">
+		<Components/>
+	</>
+	<Route path="/components/:slug">
+		{#slot params}
+			<Components {params}/>
+		{/slot}
+	</>
+	<Route path="/components/image">
+		<Image/>
+	</>
+	<Route path="/components/image/:slug">
+		{#slot params}
+			<Image {params}/>
+		{/slot}
+	</>
+	<Route path="/components/tree">
+		<Tree/>
+	</>
+	<Route path="/components/tree/:slug">
+		{#slot params}
+			<Tree {params}/>
+		{/slot}
+	</>
+	
+	<Route fallback>
+		<E404/>
+	</>
+</>

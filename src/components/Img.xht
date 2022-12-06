@@ -1,0 +1,80 @@
+<script>
+   import { colorStyle, colour } from '../utils';
+
+   export let alt = '...';
+   export let href;
+   export let src;
+   export let avatar;
+   export let icon;
+   export let color;
+   export let hcolor = null;
+   export let rotate;
+
+   let size = Number(avatar || icon) + "em", 
+      speed, direction, target;
+
+   if (href) 
+      target = href.includes('//') ? '_blank' : null;
+
+   if (color) {
+      hcolor = hcolor || colour(color)[1];
+      color = colour(color)[0];
+   }
+
+   if (color) 
+      color = colorStyle[color.toLowerCase()] || color; 
+   
+   
+   if (hcolor)       
+      hcolor = colorStyle[hcolor.toLowerCase()] || hcolor; 
+   
+
+   if(rotate) {
+      if(typeof rotate === 'boolean') rotate = .5;
+      direction = 1 / Number(rotate);
+      speed = Math.abs(direction);
+      direction = direction < 0 ? 'reverse' : 'normal';
+   };
+
+</script>
+
+{#fragment:img}
+   <img {src} loading=lazy {alt} {...$attributes}>
+{/fragment}
+
+{#fragment:icon}
+   {#if typeof src === 'function'}
+      <component:src/>
+   {:else}
+      <fragment:img/>
+   {/if}
+{/fragment}
+
+{#if href || avatar}
+   <a {href} 
+      style:width={size}
+      style:color={color}
+      style:--colorHover={hcolor}
+      style:animation-duration={speed + 's'}
+      style:animation-direction={direction}
+   >
+      <fragment:icon/>
+   </>
+{:else}
+   {#if icon}
+      <i 
+         style:width={size}
+         style:color={color}
+         style:--hover={hcolor}
+         style:animation-duration={speed + 's'}
+         style:animation-direction={direction}
+      >
+         <fragment:icon/>
+      </>
+   {:else}
+      <fragment:img/>
+   {/if}
+{/if}
+
+
+

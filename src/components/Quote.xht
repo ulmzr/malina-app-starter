@@ -1,0 +1,71 @@
+<script>
+   import { randomInt } from '../utils';
+   import quote from './quote';
+
+   export let num = "1";
+
+   /*
+
+   const phrase = [
+      `Life is about choices and chances, you make a choice and take a chance.`,
+      `Succeed in life, is not immediately but definitely.`,
+      `Do not waste stressing about things you can not change.`,
+      `Live is exactly what you make it.`,
+      `Be your self because original is worth than a copy and do not let anyone take you back to a level you have already leveled up from.`,
+      `When you down to nothing, remember god is up to something.`,
+      `Feelings are just visitors, so let them come and go.`, 
+      `Worry about your character and not your reputation, because your character is who you are and reputation is only what people think of you.`,
+      `Be your self because original is worth than a copy and do not let anyone take you back to a level you have already leveled up from.`, 
+      `When you down to nothing, remember god is up to something.`, 
+      `Feelings are just visitors, so let them come and go.`,  
+      `Worry about your character and not your reputation, because your character is who you are and reputation is only what people think of you.`,
+      `Build your own dreams, or someone else will hire you to build theirs.`, 
+      `People can see what you cannot.`, 
+      `Sometimes it is the ones you look out for that you have to look out for.`, 
+      `Be careful who you trust because sugar and salt look the same.`,
+      `Stop saying about you wish, start saying about you will.`,
+      ``,
+   ]
+   const length = phrase.length - 1;
+   */
+
+   num = Number(num);
+
+   let phrase, sentences = '', length = quote.length;
+
+   for (let i=0; i < num; i++) {
+      phrase = quote[randomInt(0, length)];
+      sentences +=  `${phrase.quote} - <b>${phrase.author}</b><br>`;
+   }
+
+</script>
+
+<p>
+   {@html sentences}
+</>
+
+<!--
+{#if num==='1'}
+   <p>
+      Life is about choices and chances, you make a choice and take a chance. Succeed in life, is not immediately but definitely. Do not waste stressing about things you can not change. Live is exactly what you make it.
+   </>
+{/if}
+
+{#if num==='2'}
+   <p>
+      Be your self because original is worth than a copy and do not let anyone take you back to a level you have already leveled up from. When you down to nothing, remember <i>god</> is up to something. Feelings are just visitors, so let them come and go. Worry about your character and not your reputation, because your character is who you are and reputation is only what people think of you.
+   </>
+{/if}
+
+{#if num==='3'}
+   <p>
+      Build your own dreams, or someone else will hire you to build theirs. People can see what you cannot. Sometimes it is the ones you look out for that you have to look out for. Be careful who you trust because sugar and salt look the same.
+   </>   
+{/if}
+
+{#if !num}
+   <p>
+      Stop saying about <i>you wish</>, start saying about <i>you will</>.
+   </>
+{/if}
+-->

@@ -1,0 +1,81 @@
+<script>
+   import {toggleSlide, toggleAttr} from '../utils';
+
+   export let id;
+   export let items = [];
+   export let close;
+
+   function trigger({target}){
+      const sub = target.nextElementSibling;
+      const hasSub = sub.tagName === 'DIV';
+      if (hasSub) {
+         toggleSlide(sub);
+         toggleAttr(target,'close');
+      }
+   }
+
+</script>
+
+{#fragment:tree items}  
+   {#each items as {title, href, icon, sub}}
+      <a {href} close={close && sub? '':null} @click:trigger>
+         {#if typeof icon === 'function'}
+            <component:icon/>
+         {:else}
+            <i/>
+         {/if}
+         <s>
+            {title}
+         </>
+      </a>
+      {#if sub}
+         <div style:display={close? 'none':''}>
+            <fragment:tree items={sub} />
+         </>
+      {/if}
+   {/each}
+{/fragment}
+
+<menu {id} tree>
+   <fragment:tree {items}/>
+</menu>
+
+<style global lang=scss>
+   [tree] {
+      --item-height: 1.5em;
+      --icon-space: 1em;
+      transition: margin .25s ease-in-out;
+      a {
+         height: var(--item-height);
+         gap: .5em;
+         width: 100%;
+         cursor: pointer;
+         transition: padding .25s ease-in-out;
+         > i {
+            width: 1em;
+            transition: width .25s ease-in-out;
+         }
+      }
+      a:not([href]) > i:empty::before{
+         content: "📂"
+      }
+      a:is([close],[href]) > i:empty::before{
+         content: "📁"
+      }
+      a[href] > i:empty::after{
+         content: "🌏";
+         font-size: .6em;
+         margin-left: -1em;
+         top: 25%;
+      }
+      div {
+         display:flex;
+         flex-direction: column;
+         transition: padding .25s ease-in-out;
+      }
+      a + div{
+         width: 100%;
+         padding-left: var(--icon-space);
+      }
+   }
+</style>

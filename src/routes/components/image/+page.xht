@@ -1,0 +1,102 @@
+<script>
+   //import { icon } from '../../';
+
+
+   let page;
+
+   async function onMount(){
+      let result = await fetch('/pages/test.html');
+      page = await result.text();
+   }
+
+</script>
+
+<main>
+   <h2>
+      Image
+      <p>Content store in routes/components/image/Page.xht</>
+   </>
+
+   {@html page}
+
+   <Quote/>
+
+   <Img src="/img/sample.webp" width='300' />
+
+   <h3>Icon
+      <small>Just about avatar image</>
+   </h3>
+
+   <Quote/>
+
+   <Img icon="5" src="/img/sample.webp" />
+   <Img icon="4" src="/img/sample.webp" />
+   <Img icon="3" src="/img/sample.webp" />
+   <Img icon="2" src="/img/sample.webp" />
+
+   <h3>Avatar
+      <small>Just about avatar image</>
+   </h3>
+
+   <Quote/>
+
+   <Img avatar="5" src="/img/sample.webp" />
+   <Img avatar="4" src="/img/sample.webp" />
+   <Img avatar="3" src="/img/sample.webp" />
+   <Img avatar="2" src="/img/sample.webp" />
+
+<!--
+   <h3>SVG
+      <small>Just about svg.</>
+   </h3>
+
+   <Quote num="1"/>
+
+   <Img icon="5" src={icon.rasp}/>
+   <Img icon="4" src={icon.rasp}/>
+   <Img icon="3" src={icon.rasp}/>
+   <Img icon="2" src={icon.rasp}/>
+
+   <h4>Coloring
+      <small>Just about coloring svg icon</>
+   </>
+
+   <Quote num="1"/>
+
+   <Img color="primary" icon="5" src={icon.raspbw}/>
+   <Img color="info" icon="5" src={icon.raspbw}/>
+   <Img color="success" icon="5" src={icon.raspbw}/>
+   <Img color="warning" icon="5" src={icon.raspbw}/>
+   <Img color="error" icon="5" src={icon.raspbw}/>
+
+   <h4>Hovering
+      <small>Just about coloring svg icon</>
+   </>
+
+   <Quote num="1"/>
+
+   <Img color="|primary" icon="5" src={icon.raspbw}/>
+   <Img color="|info" icon="5" src={icon.raspbw}/>
+   <Img color="|success" icon="5" src={icon.raspbw}/>
+   <Img color="|warning" icon="5" src={icon.raspbw}/>
+   <Img color="|error" icon="5" src={icon.raspbw}/>
+
+   <h3>Rotate
+      <small>About rotating image or svg</>
+   </>
+   <Quote num="1"/>
+
+   <h4>From Image</h4>
+   <Quote num="1"/>
+
+   <Img src="/img/gear.webp" rotate=".5" icon="2"/>
+   <Img src="/img/gear.webp" rotate="-.5" icon="4"/>
+
+   <h4>From SVG</h4>
+   <Quote num="1"/>
+
+   <Img src={icon.gear} rotate=".5" color="primary" avatar="2"/>
+   <Img href="http://google.com" src={icon.gear} rotate="-.5" color="primary" avatar="4"/>
+
+-->
+</>

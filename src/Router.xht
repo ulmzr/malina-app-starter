@@ -4,6 +4,7 @@
 	import Home from "./routes/+page.xht";
 	import E404 from "./modules/E404.xht";
 	import Components from "./routes/components/+page.xht";
+	import Icon from "./routes/components/icon/+page.xht";
 	import Image from "./routes/components/image/+page.xht";
 	import Tree from "./routes/components/tree/+page.xht";
 	
@@ -19,6 +20,14 @@
 	<Route path="/components/:slug">
 		{#slot params}
 			<Components {params}/>
+		{/slot}
+	</>
+	<Route path="/components/icon">
+		<Icon/>
+	</>
+	<Route path="/components/icon/:slug">
+		{#slot params}
+			<Icon {params}/>
 		{/slot}
 	</>
 	<Route path="/components/image">

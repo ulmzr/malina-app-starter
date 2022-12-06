@@ -4,7 +4,7 @@ const sassPlugin = require('malinajs/plugins/sass.js');
 
 const watch = process.argv.includes('-w') ? (process.env.WATCH = 1) : null;
 
-if (watch) require('./routes');
+//if (watch) require('./routes');
 
 module.exports = function (option, filename) {
    const dirname = filename.replace(/[^\\\/]+$/, '');
@@ -12,7 +12,6 @@ module.exports = function (option, filename) {
    option.css = false;
    option.passClass = false;
    option.immutable = true;
-   option.extension = ['xht', 'svg'];
    option.plugins = [sassPlugin()];
    option.autoimport = (name) => {
       const lists = [

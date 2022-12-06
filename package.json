@@ -2,15 +2,14 @@
    "name": "admin-panel",
    "version": "0.0.1",
    "scripts": {
-      "build": "node malina-esbuild",
-      "dev": "node malina-esbuild -w"
+      "build": "node node_modules/malinajs/malina-esbuild",
+      "dev": "node node_modules/malinajs/malina-esbuild -w"
    },
    "license": "MIT",
    "devDependencies": {
       "chokidar": "^3.5.3",
       "derver": "^0.5.3",
-      "esbuild": "^0.15.16",
-      "esbuild-plugin-copy": "^2.0.1",
+      "esbuild": "^0.15.18",
       "malinajs": "^0.6.x",
       "malinajs-router": "^0.1.9",
       "path": "^0.12.7",

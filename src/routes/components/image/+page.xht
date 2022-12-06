@@ -1,23 +1,14 @@
 <script>
-   //import { icon } from '../../';
+   import { icon } from '../../';
 
-
-   let page;
-
-   async function onMount(){
-      let result = await fetch('/pages/test.html');
-      page = await result.text();
-   }
 
 </script>
 
 <main>
    <h2>
       Image
-      <p>Content store in routes/components/image/Page.xht</>
+      <p>Content store in routes/components/image/+page.xht</>
    </>
-
-   {@html page}
 
    <Quote/>
 
@@ -45,7 +36,7 @@
    <Img avatar="3" src="/img/sample.webp" />
    <Img avatar="2" src="/img/sample.webp" />
 
-<!--
+
    <h3>SVG
       <small>Just about svg.</>
    </h3>
@@ -98,5 +89,5 @@
    <Img src={icon.gear} rotate=".5" color="primary" avatar="2"/>
    <Img href="http://google.com" src={icon.gear} rotate="-.5" color="primary" avatar="4"/>
 
--->
+
 </>

@@ -1,33 +1,33 @@
-import apple from './apple.svg';
-import windows from './windows.svg';
-import linux from './linux.svg';
-import malina from './malina.svg';
-import rasp from './rasp.svg';
-import raspbw from './rasp-bw.svg';
-import cart from './cart.svg';
-import onlineMeeting from './online-meeting.svg';
+import apple from './apple.ma';
+import windows from './windows.ma';
+import linux from './linux.ma';
+import malina from './malina.ma';
+import rasp from './rasp.ma';
+import raspbw from './rasp-bw.ma';
+import cart from './cart.ma';
+import onlineMeeting from './online-meeting.ma';
 
-import gmeet from './gmeet.svg';
-import msteams from './msteams.svg';
-import zoomus from './zoomus.svg';
+import gmeet from './gmeet.ma';
+import msteams from './msteams.ma';
+import zoomus from './zoomus.ma';
 
-import accu from './accu.svg';
-import brake from './brake.svg';
-import bulp from './bulp.svg';
-import engine from './engine.svg';
-import exhaust from './exhaust.svg';
-import gear from './gear.svg';
-import sprocket from './sprocket.svg';
+import accu from './accu.ma';
+import brake from './brake.ma';
+import bulp from './bulp.ma';
+import engine from './engine.ma';
+import exhaust from './exhaust.ma';
+import gear from './gear.ma';
+import sprocket from './sprocket.ma';
 
-import css3 from './css3.svg';
-import html5 from './html5.svg';
-import github from './github.svg';
-import nodejs from './node-js.svg';
-import twitter from './twitter.svg';
-import google from './google.svg';
+import css3 from './css3.ma';
+import html5 from './html5.ma';
+import github from './github.ma';
+import nodejs from './node-js.ma';
+import twitter from './twitter.ma';
+import google from './google.ma';
 
-import search from './search.svg';
-import email from './email.svg';
+import search from './search.ma';
+import email from './email.ma';
 
 export default {
    onlineMeeting,

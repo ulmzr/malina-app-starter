@@ -1,0 +1,53 @@
+<script>
+   import { uuid, runtimeStyle, colorStyle, attrTrue } from '../utils';
+
+   export let title = '';
+   export let type;
+   export let iconColor;
+
+   $attributes = attrTrue($attributes);
+
+   let color;
+   let hasSlot = $option.slots || null;
+   iconColor = colorStyle[iconColor] || iconColor ;
+
+   if (type) {
+      color = colorStyle[type] || type;
+   }
+
+   function $(e){
+      if(!color&&!iconColor) return;
+      let uid = uuid();
+      runtimeStyle(e, uid, `
+         ${color?`
+         [${uid}]{
+            border-color: ${color};
+            background: linear-gradient(-45deg, ${color},${color},${color}77);
+         }
+         [${uid}]:hover{
+            box-shadow: 0 0 0 0.1875em ${color}55;
+         }
+         [${uid}]:focus{
+            box-shadow: 0 0 0 0.1875em ${color}77;
+         }
+         [${uid}]:active{
+            box-shadow: inset 0.0625em 0.0625em 0.25em ${color};
+         }
+         `:``}
+         ${iconColor?`
+         [${uid}]>:is(i,a){
+            color: ${iconColor}
+         }
+         `:``}
+      `);
+   }
+
+</script>
+
+<button *$ {...$attributes}>
+   {title}
+   {#if hasSlot}
+      <slot/>
+   {/if}
+</>
+

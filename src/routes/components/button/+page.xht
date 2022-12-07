@@ -1,0 +1,101 @@
+<script>
+	import icons from '../../../svg';
+
+	export let params = {};
+	let slug;
+
+	$:params, slug = params.slug;
+</script>
+
+<main>
+	<h3> 
+		Button
+		<i>
+			<Quote/>
+		</>
+	</>
+	<p>
+		Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestiae sint itaque fugit consequuntur voluptatibus, delectus saepe asperiores vitae harum labore temporibus debitis neque, voluptates, nam facilis amet non id est.
+	</p>
+	<Button title="Register"/>
+	<Button title="Login"/>
+	
+	<h4>Variant</>
+	<Quote/>
+	<Button smallcaps title="Smallcaps Button"/>
+	<br>
+	<Button flat title="Flat Button"/>
+	<br>
+	<Button rounded title="Rounded"/>
+	<br>
+	<Button outline title="Outlined"/>
+
+	<h4>
+		Type
+	</>
+	<Quote/>
+	<Button type="primary" title="Primary"/>
+	<Button type="info" title="Info"/>
+	<Button type="success" title="Success"/>
+	<Button type="warning" title="Warning"/>
+	<Button type="error" title="Error"/>
+
+	<h4>
+		Icon
+	</>
+	<Quote/>
+	<Button>
+      <Img icon src={icons.css3} />
+   </>
+   <Button>
+      <Img icon src={icons.html5} />
+   </>
+   <Button>
+      <Img icon src={icons.nodejs} />
+   </>
+
+	<h4>
+		Icon color
+	</>
+	<Quote/>
+	<Button iconColor="warning">
+      <Img icon src={icons.css3} />
+   </>
+   <Button iconColor="warning">
+      <Img icon src={icons.html5} />
+   </>
+   <Button iconColor="warning">
+      <Img icon src={icons.nodejs} />
+   </>
+
+	<h4>
+		Icon title
+	</>
+	<Quote/>
+	<Button>
+      <Img icon src={icons.msteams}/>
+		<span>
+			MS Teams
+		</>
+   </>
+   <Button>
+      <Img icon src={icons.gmeet}/>
+		<span>
+			Google Meet
+		</>
+   </>
+   <Button>
+      <Img icon src={icons.zoomus}/>
+		<span>
+			Zoom Us
+		</>
+   </>
+	
+	<br>
+	<br>
+	<br>
+</>
+
+{#if slug}
+	<Slug {slug} />
+{/if}

@@ -6,6 +6,14 @@ function removeProps(e) {
    e.removeProperty('transition-timing-function');
 }
 
+export function attrTrue(attr) {
+   Object.keys(attr).forEach((key) => {
+      attr[key] = attr[key] === true ? '' : null;
+      return key;
+   });
+   return attr;
+}
+
 export function randomInt(min, max) {
    return Math.floor(Math.random() * (max - min + 1) + min);
 }
@@ -55,7 +63,7 @@ export function runtimeStyle(e, uid, str) {
    const styleNode = document.createTextNode(str);
    runtime.appendChild(styleNode);
 
-   e.setAttribute(uid);
+   e.setAttribute(uid, '');
 }
 
 // slider

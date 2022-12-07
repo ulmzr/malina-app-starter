@@ -3,7 +3,10 @@
 
 	import Home from "./routes/+page.xht";
 	import E404 from "./modules/E404.xht";
+	import Basic from "./routes/basic/+page.xht";
+	import Typography from "./routes/basic/typography/+page.xht";
 	import Components from "./routes/components/+page.xht";
+	import Button from "./routes/components/button/+page.xht";
 	import Icon from "./routes/components/icon/+page.xht";
 	import Image from "./routes/components/image/+page.xht";
 	import Tree from "./routes/components/tree/+page.xht";
@@ -14,12 +17,36 @@
 	<Route path="/">
 		<Home/>
 	</>
+	<Route path="/basic">
+		<Basic/>
+	</>
+	<Route path="/basic/:slug">
+		{#slot params}
+			<Basic {params}/>
+		{/slot}
+	</>
+	<Route path="/basic/typography">
+		<Typography/>
+	</>
+	<Route path="/basic/typography/:slug">
+		{#slot params}
+			<Typography {params}/>
+		{/slot}
+	</>
 	<Route path="/components">
 		<Components/>
 	</>
 	<Route path="/components/:slug">
 		{#slot params}
 			<Components {params}/>
+		{/slot}
+	</>
+	<Route path="/components/button">
+		<Button/>
+	</>
+	<Route path="/components/button/:slug">
+		{#slot params}
+			<Button {params}/>
 		{/slot}
 	</>
 	<Route path="/components/icon">

@@ -1,0 +1,18 @@
+<script>
+	export let params = {};
+	let slug;
+
+	$:params, slug = params.slug;
+</script>
+
+<main>
+	<h1> 
+		Basic
+		<sub>Content of Basic</>
+	</>
+	<hr>
+</>
+
+{#if slug}
+	<Slug {slug} />
+{/if}

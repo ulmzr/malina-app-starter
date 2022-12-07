@@ -1,0 +1,47 @@
+<script>
+	export let params = {};
+	let slug;
+
+	$:params, slug = params.slug;
+</script>
+
+<main>
+	<h2> 
+		Typography
+		<p>About typography</>
+	</>
+	<Quote/>
+	
+	<h3>Inline element</h3>
+	<ul>
+		<li>Global</li>
+		<li>Global <sup>superscript</></li>
+		<li>Global <small>small</></li>
+		<li>Global <sub>subscript</></li>
+		<li><i>Italic</></li>
+		<li><em>Emphasis</></li>
+		<li><b>Bold</></li>
+		<li><strong>Strong</></li>
+		<li><u>Underline</></li>
+		<li><a href>Link</></li>
+	</ul>
+	<p>
+		Lorem ipsum dolor sit amet consectetur adipisicing elit. In, veniam! Placeat est consequuntur officiis illo facere ipsa voluptatibus nemo eius nisi, reprehenderit in necessitatibus harum ab at numquam delectus dolorem.
+	</>
+
+	<h3>Heading</h3>
+	<Quote/>
+	<p>
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio neque nulla similique sapiente fugit consequatur eveniet doloremque amet. Labore id dolorem harum eligendi et commodi fugiat doloribus voluptate nesciunt a?
+	</>
+
+	<h3>Helper-block</h3>
+	<Quote/>
+	<p>
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio neque nulla similique sapiente fugit consequatur eveniet doloremque amet. Labore id dolorem harum eligendi et commodi fugiat doloribus voluptate nesciunt a?
+	</>
+</>
+
+{#if slug}
+	<Slug {slug} />
+{/if}

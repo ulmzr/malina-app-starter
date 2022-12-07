@@ -33,15 +33,16 @@ body {
    line-height: 1.125;
    font-weight: 800;
    > * {
-      display: block;
-      font-size: 0.55em;
-      font-weight: normal;
-      margin-top: 0.125em;
+      display: block !important;
+      font-size: 0.7em;
+      margin-top: 0.25em;
+      font-weight: initial;
    }
 }
 
-:is(h2, h3, h4, h5, h6) > * {
-   font-size: 0.75em;
+h1,
+h2 > :is(p, i, em) {
+   font-size: 0.5em;
 }
 
 h1 {
@@ -68,11 +69,6 @@ h6 {
    font-size: 0.75em;
 }
 
-hr {
-   border-top: 1px solid #ddd;
-   margin: 1rem 0 1.5rem;
-}
-
 hgroup > :first-child {
    margin-bottom: 0.25em;
 }
@@ -83,9 +79,64 @@ p {
    }
 }
 
-i {
+small {
+   font-size: 0.75em;
+}
+
+sup,
+sub {
+   font-size: 0.65em;
+}
+
+sup {
+   vertical-align: super;
+}
+
+sub {
+   vertical-align: sub;
+}
+
+i,
+em {
    font-style: italic;
-   justify-content: center;
+   // justify-content: center;
+}
+
+em {
+   font-weight: 600;
+}
+
+b {
+   font-weight: 700;
+}
+
+strong {
+   font-weight: 800;
+}
+
+u,
+a[href] {
+   text-decoration: underline;
+   text-decoration-color: #ccd1d9;
+   text-underline-offset: 0.25em;
+}
+
+a {
+   align-items: center;
+   cursor: pointer;
+   &[href] {
+      color: #2364b8;
+      text-decoration-color: #2364b844;
+   }
+   &[href]:hover {
+      color: #2364b8cc;
+   }
+}
+
+// special case
+
+a img {
+   border-radius: 100%;
 }
 
 a,
@@ -93,30 +144,26 @@ i {
    position: relative;
    display: inline-flex;
    flex-shrink: 0;
-   align-items: center;
+   // align-items: center;
    animation-timing-function: linear;
    animation-iteration-count: infinite;
    animation-name: rotate;
-   > img {
-      object-fit: cover;
-      aspect-ratio: 1;
-   }
    &:hover {
       color: var(--hover, currentColor);
    }
-}
-
-a {
-   > * {
-      pointer-events: none;
+   img {
+      object-fit: cover;
+      aspect-ratio: 1;
    }
    i {
       font-style: normal;
    }
-   > img {
-      border-radius: 100%;
+   * {
+      pointer-events: none;
    }
 }
+
+// element
 
 img,
 svg {
@@ -128,12 +175,93 @@ svg {
    fill: currentColor;
 }
 
+ul {
+   list-style-position: inside;
+   ul {
+      padding-left: 1.5em;
+   }
+}
+
+button {
+   position: relative;
+   user-select: none;
+   display: inline-flex;
+   justify-content: center;
+   align-items: center;
+   border-width: 0.0625em;
+   border-style: solid;
+   border-radius: 0.5em;
+   padding: 0 1em;
+   height: 2.25em;
+   border-color: #656d78;
+   background: linear-gradient(-45deg, #656d78, #656d78, #656d7877);
+   color: #fff;
+   gap: 0.5em;
+   cursor: pointer;
+   transition: box-shadow 0.25s, inset 0.25s;
+   &:hover {
+      z-index: 1;
+      box-shadow: 0 0 0 0.1875em #656d7855;
+   }
+   &:focus {
+      z-index: 2;
+      box-shadow: 0 0 0 0.1875em #656d7877;
+   }
+   &:active {
+      z-index: 3;
+      box-shadow: inset 0.0625em 0.0625em 0.25em #656d78;
+      text-shadow: 0.0625em 0.0625em 0 #434a54;
+   }
+   > span {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      align-self: stretch;
+   }
+   * {
+      align-self: stretch;
+   }
+   &[disabled] {
+      * {
+         pointer-events: none;
+      }
+   }
+}
+
+// helper
+
+:not([group]) {
+   &[smallcaps] {
+      font-variant: small-caps;
+      letter-spacing: 0.031255em;
+   }
+   &[flat] {
+      border-radius: 0;
+   }
+   &[rounded] {
+      border-radius: 1.125em;
+   }
+   &[cover] {
+      display: flex;
+      justify-content: flex-start;
+   }
+   &[outline] {
+      background: transparent;
+      text-shadow: none;
+      color: currentColor;
+   }
+}
+
+// layout
+
+hr {
+   border-top: 1px solid #ddd;
+   margin: 1rem 0 1.5rem;
+}
 center {
    display: block;
    text-align: center;
 }
-
-// layout
 
 body > :not(section, script) {
    position: fixed;
@@ -168,6 +296,13 @@ nav,
 menu {
    flex: 1;
    justify-content: flex-start;
+   a[href] {
+      text-decoration: none;
+      color: inherit;
+      &:hover {
+         color: inherit;
+      }
+   }
 }
 
 [sidebar] {
@@ -217,11 +352,14 @@ html {
 
 [content] {
    position: relative;
-   padding: 1em 1.25em;
    margin-left: var(--left, 0);
    margin-right: var(--right, 0);
    height: inherit;
+   padding: 1em 0;
    transition: 0.25s ease-in-out;
+   > main {
+      padding: 0 1.25em;
+   }
 }
 
 [footer] {
@@ -268,16 +406,22 @@ main {
       margin-bottom: 1rem;
    }
    > :not(:first-child):is(h1, h2, h3, h4, h5, h6) {
-      margin-top: 1.5rem;
+      margin-top: 0.5rem;
    }
 }
 
 @media (min-width: 576px) {
    [content] {
-      padding: 1.5em 2em;
-   }
-   main {
-      max-width: 540px;
+      padding: 0 2em;
+      > main {
+         max-width: 540px;
+      }
+      > :first-child {
+         padding-top: 1.5em;
+      }
+      > :last-child {
+         padding-bottom: 1.5em;
+      }
    }
 
    [sidebar] {
@@ -304,17 +448,19 @@ main {
 }
 
 @media (min-width: 768px) {
-   main {
-      max-width: 720px;
+   [content] {
+      > main {
+         max-width: 720px;
+      }
    }
 }
 
 @media (min-width: 992px) {
    [content] {
-      padding: 1.5em 2.5em;
-   }
-   main {
-      max-width: 960px;
+      padding: 0 2.5em;
+      > main {
+         max-width: 960px;
+      }
    }
 
    [sidebar] {
@@ -346,15 +492,15 @@ main {
 
 @media (min-width: 1200px) {
    [content] {
-      padding: 1.5em 3em;
-   }
-   main {
-      max-width: 1140px;
+      padding: 0 3em;
+      > main {
+         max-width: 1140px;
+      }
    }
 }
 
 @media (min-width: 1452px) {
-   main {
+   [content] > main {
       max-width: 1360px;
    }
 }

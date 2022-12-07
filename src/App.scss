@@ -99,7 +99,7 @@ sub {
 i,
 em {
    font-style: italic;
-   // justify-content: center;
+   justify-content: center;
 }
 
 em {
@@ -114,8 +114,7 @@ strong {
    font-weight: 800;
 }
 
-u,
-a[href] {
+:is(u, a[href]) {
    text-decoration: underline;
    text-decoration-color: #ccd1d9;
    text-underline-offset: 0.25em;
@@ -139,8 +138,7 @@ a img {
    border-radius: 100%;
 }
 
-a,
-i {
+:is(a, i) {
    position: relative;
    display: inline-flex;
    flex-shrink: 0;
@@ -165,8 +163,7 @@ i {
 
 // element
 
-img,
-svg {
+:is(img, svg) {
    max-height: 100%;
    max-width: 100%;
 }

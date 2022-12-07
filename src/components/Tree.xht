@@ -1,5 +1,5 @@
 <script>
-   import {toggleSlide, toggleAttr} from '../utils';
+   import {toggleSlide, toggleAttr} from './';
 
    export let id;
    export let items = [];
@@ -7,7 +7,7 @@
 
    function trigger({target}){
       const sub = target.nextElementSibling;
-      const hasSub = sub.tagName === 'DIV';
+      const hasSub = sub && sub.tagName === 'DIV';
       if (hasSub) {
          toggleSlide(sub);
          toggleAttr(target,'close');

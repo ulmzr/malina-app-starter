@@ -1,6 +1,6 @@
 # Malina.js template
 
-This template for new Malina.js web-application.
+This template for new Malina.js web-application and under-development.
 
 # Developing
 
@@ -34,9 +34,9 @@ npm run surge
 
 You may set config for each part of the template by config files in the app root directory:
 
-* `malina.config.js` - [Malina.js](https://malinajs.github.io/docs/#compile-options) compiler configuration.
-* `esbuild.config.js` - options for [ESBuild](https://esbuild.github.io/api/) bundler.
-* `derver.config.js` - configuration for [Derver](https://www.npmjs.com/package/derver) web-server.
+-  `malina.config.js` - [Malina.js](https://malinajs.github.io/docs/#compile-options) compiler configuration.
+-  `esbuild.config.js` - options for [ESBuild](https://esbuild.github.io/api/) bundler.
+-  `derver.config.js` - configuration for [Derver](https://www.npmjs.com/package/derver) web-server.
 
 ## Example
 
